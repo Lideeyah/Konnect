@@ -1,133 +1,136 @@
-# Konnect 🚀
+# Konnect 🔗
 
-**The Safest Way to Buy & Sell on Campus**
+**The Trust-First Campus Marketplace on Solana**
 
-Konnect is a secure, student-first marketplace platform designed to bridge the trust gap in campus commerce. Built with safety and speed in mind, Konnect uses blockchain technology to ensure fair exchanges and instant settlements between verified students.
+> *Bridging the gap between physical campus commerce and digital security.*
 
 ![Konnect Banner](https://via.placeholder.com/1200x400?text=Konnect+Marketplace)
 
 ---
 
-## 🌟 Key Features
+## 🚩 The Problem
+Trading on campus is broken. Students rely on fragmented WhatsApp groups, bulletin boards, and shady DMs to buy and sell textbooks, gadgets, and services.
+*   **Lack of Trust**: "Will they actually pay?" "Is the item real?"
+*   **Safety Concerns**: Meeting strangers for cash exchanges can be risky.
+*   **Scams**: Fake proofs of payment and ghosting are rampant.
+*   **Inefficiency**: Haggling in DMs and coordinating meetups is a waste of time.
 
-*   **🛡️ 100% Secure Payments**: Funds are secured via an escrow system, ensuring sellers get paid and buyers get what they expect.
-*   **⚡ Instant Settlement**: Powered by Solana, transactions settle instantly upon confirmation.
-*   **🎓 Verified Student Community**: Trade with confidence knowing every user is a verified student at your campus.
-*   **💬 Integrated Messaging**: Communicate securely with buyers and sellers directly within the app.
-*   **⭐ Reputation System**: Build trust through a comprehensive review and gamification system.
-*   **📱 Seamless Wallet Integration**: Easy connection with Solana wallets for managing funds.
+## ✅ The Solution: Konnect
+Konnect is not just another classifieds app. It is a **secure, escrow-based marketplace** built specifically for university students. We combine verify-able student identities with blockchain technology to guarantee that **no one gets scammed.**
+
+1.  **Identity First**: Users must verify their student status, creating a closed loop of trusted peers.
+2.  **Escrow Security**: Funds are locked in a smart contract before the exchange happens.
+3.  **Seamless Experience**: A modern, glossy UI that feels like the apps you use every day, hiding the complexity of blockchain under the hood.
 
 ---
 
-## 🛠️ Tech Stack
+## ⚡ Why Solana?
+We chose **Solana** not just for the hype, but for the fundamental technical advantages it brings to a high-volume, peer-to-peer marketplace:
+
+*   **Atomic Escrow**: We utilize Solana's specialized capabilities to hold funds (USDC/SOL) in a secure intermediate account. The seller sees the funds are locked *before* they hand over the item. The buyer knows their money effectively "waits" for them to confirm receipt.
+*   **Instant Finality**: When you click "Item Received", the seller gets paid in *milliseconds*. No banking delays, no "2-3 business days".
+*   **Negligible Fees**: Transaction costs are a fraction of a penny, making it viable to sell low-value items like used textbooks or coffee vouchers without fees eating the profit.
+*   **Web3 Integration**: Seamless wallet connection (Phantom, Solflare) allows for meaningful ownership and potential future features like NFT-based tickets or student loyalty tokens.
+
+---
+
+## 🌟 Key Features
+
+*   **🛡️ Trustless Escrow System**: The core of Konnect. Buyers deposit funds => Konnect holds them => Seller delivers => Buyer confirms => Funds released.
+*   **🎓 Student Verification**: (Coming Soon) Integration with campus email systems to ensure every user is a real student.
+*   **📍 Campus-Specific Feeds**: Automatically see listings only from your university or nearby campuses.
+*   **💬 Integrated Chat**: Negotiate and arrange meetups securely without sharing personal phone numbers.
+*   **⭐ Reputation & Gamification**: Earn "Trust Score" points for every successful trade. High-trust users get badges and better visibility.
+
+---
+
+## 🛠️ Technical Architecture
+
+Konnect employs a **Hybrid Web3 Architecture**, leveraging the best of traditional web tech for user experience and blockchain for value transfer.
 
 ### Frontend
-*   **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-*   **Language**: TypeScript
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-*   **Animations**: [Framer Motion](https://www.framer.com/motion/)
-*   **Blockchain Integration**: `@solana/wallet-adapter-react`, `@solana/web3.js`
-*   **UI Components**: Lucide React
+*   **Framework**: Next.js 15 (App Router) for a blisteringly fast React application.
+*   **Styling**: Tailwind CSS & Framer Motion for a premium, "glassmorphic" aesthetic.
+*   **State Management**: Zustand & React Context.
+*   **Wallet Adapter**: `@solana/wallet-adapter-react` for universal wallet support.
 
 ### Backend
-*   **Runtime**: Node.js
-*   **Framework**: [Express.js](https://expressjs.com/)
-*   **Database**: PostgreSQL
-*   **Blockchain**: `@solana/web3.js`, `@solana/spl-token`
-*   **Authentication**: JWT, bcryptjs
-*   **File Uploads**: Multer
+*   **API**: Express.js & Node.js serving a RESTful API.
+*   **Database**: PostgreSQL for robust data storage (Users, Listings, Chat History, Metadata).
+*   **Blockchain Interaction**: `@solana/web3.js` and `@solana/spl-token` running on the server to monitor escrow states and verify on-chain events.
+*   **Security**: JWT authentication for API access, ensuring user sessions are secure.
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these steps to set up the project locally on your machine.
+Experience the future of campus trading locally.
 
 ### Prerequisites
-*   [Node.js](https://nodejs.org/) (v16 or higher)
+*   [Node.js](https://nodejs.org/) (v16+)
 *   [PostgreSQL](https://www.postgresql.org/)
-*   A Solana Wallet (e.g., Phantom, Solflare)
+*   A Solana Wallet (e.g., Phantom) set to **Devnet**.
 
-### 1. Clone the Repository
+### 1. Installation
+Clones the repo and install dependencies for both the client and server.
+
 ```bash
 git clone https://github.com/Lideeyah/Konnect.git
 cd Konnect
-```
 
-### 2. Backend Setup
-Navigate to the backend directory and install dependencies:
-```bash
+# Install Backend Deps
 cd backend
 npm install
-```
 
-**Environment Variables:**
-Create a `.env` file in the `backend` directory with the following variables:
-```env
-PORT=4000
-DATABASE_URL=your_postgresql_connection_string
-JWT_SECRET=your_jwt_secret
-SOLANA_RPC_URL=https://api.devnet.solana.com
-# Add any other required keys (e.g. Email service credentials)
-```
-
-**Start the Server:**
-```bash
-npm run dev
-# Server will run on http://localhost:4000
-```
-
-### 3. Frontend Setup
-Navigate to the frontend directory and install dependencies:
-```bash
+# Install Frontend Deps
 cd ../frontend
 npm install
 ```
 
-**Environment Variables:**
-Create a `.env.local` file in the `frontend` directory if needed (check `next.config.ts` or source code for required public vars).
+### 2. Configuration
+**Backend (`backend/.env`)**
+```env
+PORT=4000
+DATABASE_URL=postgresql://user:password@localhost:5432/konnect_db
+JWT_SECRET=supersecretkey
+SOLANA_RPC_URL=https://api.devnet.solana.com
+# Wallet Secret Key for the Escrow Authority (JSON array format)
+ESCROW_WALLET_SECRET=[...] 
+```
 
-**Start the Development Server:**
+**Frontend (`frontend/.env.local`)**
+```env
+NEXT_PUBLIC_API_URL=http://localhost:4000/api
+NEXT_PUBLIC_SOLANA_NETWORK=devnet
+```
+
+### 3. Run It
+Open two terminals.
+
+**Terminal 1 (Backend):**
 ```bash
+cd backend
 npm run dev
-# App will operate on http://localhost:3000
 ```
 
----
-
-## 📂 Project Structure
-
+**Terminal 2 (Frontend):**
+```bash
+cd frontend
+npm run dev
 ```
-Konnect/
-├── backend/             # Express.js API & Business Logic
-│   ├── routes/          # API Routes (Auth, Marketplaces, Orders, etc.)
-│   ├── db/              # Database connection
-│   ├── escrowWallet/    # Wallet logic for escrow
-│   └── server.js        # Entry point
-│
-├── frontend/            # Next.js Application
-│   ├── src/
-│   │   ├── app/         # App Router Pages
-│   │   ├── components/  # Reusable UI Components
-│   │   └── lib/         # Utility functions
-│   └── public/          # Static assets
-│
-└── README.md            # Project Documentation
-```
+Visit `http://localhost:3000` to start trading!
 
 ---
 
 ## 🤝 Contributing
-
-Contributions are always welcome!
-1.  Fork the repository.
-2.  Create a new branch (`git checkout -b feature/amazing-feature`).
-3.  Commit your changes (`git commit -m 'Add some amazing feature'`).
-4.  Push to the branch (`git push origin feature/amazing-feature`).
-5.  Open a Pull Request.
+We are building for the community, by the community.
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
 ---
 
 ## 📄 License
-
-This project is licensed under the ISC License.
+Distributed under the MIT License. See `LICENSE` for more information.
